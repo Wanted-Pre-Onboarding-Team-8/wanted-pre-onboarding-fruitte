@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "거창 오가네체리",
+    "imageUrl": "https://user-images.githubusercontent.com/54323527/188268088-acebe58d-5f74-4fb9-899a-bef0963899f4.jpg",
+    "price": 20000,
+    "salePercent": 30,
+    "isMDSelect": false,
+    "isOnSale": false,
+    "stock": 10,
+    "reviewCount": 5,
+    "sellCount": 10
+  },
+  {
+    "id": 2,
+    "name": "거창 오가네체리",
+    "imageUrl": "https://user-images.githubusercontent.com/54323527/188268099-b5f742fb-44db-4036-9616-ac76a2339bd8.jpg",
+    "price": 20000,
+    "salePercent": 30,
+    "isMDSelect": false,
+    "isOnSale": false,
+    "stock": 10,
+    "reviewCount": 5,
+    "sellCount": 10
+  },
+  {
+    "id": 3,
+    "name": "거창 오가네체리",
+    "imageUrl": "https://user-images.githubusercontent.com/54323527/188268101-2d6161ea-8b7b-43ba-8816-0c35bc3922ff.jpg",
+    "price": 20000,
+    "salePercent": 30,
+    "isMDSelect": false,
+    "isOnSale": false,
+    "stock": 10,
+    "reviewCount": 5,
+    "sellCount": 10
+  },
+  {
+    "id": 4,
+    "name": "거창 오가네체리",
+    "imageUrl": "https://user-images.githubusercontent.com/54323527/188268102-4af95a7f-4d05-4f7b-95ab-d743a4983725.jpg",
+    "price": 20000,
+    "salePercent": 30,
+    "isMDSelect": false,
+    "isOnSale": false,
+    "stock": 10,
+    "reviewCount": 5,
+    "sellCount": 10
+  },
+  {
+    "id": 5,
+    "name": "거창 오가네체리",
+    "imageUrl": "https://user-images.githubusercontent.com/54323527/188268104-6c7e8f90-e5f0-408c-baf8-c733fe30f021.jpg",
+    "price": 20000,
+    "salePercent": 30,
+    "isMDSelect": false,
+    "isOnSale": false,
+    "stock": 10,
+    "reviewCount": 5,
+    "sellCount": 10
+  },
+  {
+    "id": 6,
+    "name": "거창 오가네체리",
+    "imageUrl": "https://user-images.githubusercontent.com/54323527/188268105-04e03cde-f9b8-46bb-8ffa-6e638bcddb89.png",
+    "price": 20000,
+    "salePercent": 30,
+    "isMDSelect": false,
+    "isOnSale": false,
+    "stock": 10,
+    "reviewCount": 5,
+    "sellCount": 10
+  },
+  {
+    "id": 7,
+    "name": "거창 오가네체리",
+    "imageUrl": "https://user-images.githubusercontent.com/54323527/188268107-b2ca1fce-c3ba-43c7-81e9-5705a27d523f.png",
+    "price": 20000,
+    "salePercent": 30,
+    "isMDSelect": false,
+    "isOnSale": false,
+    "stock": 10,
+    "reviewCount": 5,
+    "sellCount": 10
+  },
+  {
+    "id": 8,
+    "name": "거창 오가네체리",
+    "imageUrl": "https://user-images.githubusercontent.com/54323527/188268108-b85a8878-0139-4415-96db-1d1fac66967f.jpg",
+    "price": 20000,
+    "salePercent": 30,
+    "isMDSelect": false,
+    "isOnSale": false,
+    "stock": 10,
+    "reviewCount": 5,
+    "sellCount": 10
+  }
+]
