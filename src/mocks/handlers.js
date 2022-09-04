@@ -14,10 +14,22 @@ const productDetail = [...data.productDetail];
 
 export const handlers = [
   rest.get(PRODUCT_API_URL, (req, res, ctx) => {
+    const exposureStatus = ['all', 'on', 'off'];
     const page = Number(req.url.searchParams.get('page'));
     const size = Number(req.url.searchParams.get('size'));
-    const totalPage = Math.ceil(productList.length / size);
-    const newProducts = [...productList];
+    const exposure = req.url.searchParams.get('exposure')
+      ? req.url.searchParams.get('exposure')
+      : exposureStatus[2];
+    const newProducts = [...productList].filter((product) => {
+      if (exposure === exposureStatus[0]) {
+        return product.isExposure === true;
+      } else if (exposure === exposureStatus[1]) {
+        return product.isExposure === false;
+      } else {
+        return product;
+      }
+    });
+    const totalPage = Math.ceil(newProducts.length / size);
     const targetProductsList = newProducts.splice(page * size, size);
 
     const responseData = {
@@ -36,7 +48,7 @@ export const handlers = [
     targetProduct.isExposure = !targetProduct.isExposure;
     return res(ctx.status(201));
   }),
-  
+
   rest.get(`${PRODUCTS_PAGE}?id=`, async (req, res, ctx) => {
     const currentProductId = req.url.searchParams.get('id');
     const productDetailById = productDetail.find(
