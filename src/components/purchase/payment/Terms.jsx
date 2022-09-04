@@ -3,15 +3,26 @@ import { useNavigate } from 'react-router-dom';
 import { PAYMENT_RESULT_PAGE } from '../../../consts';
 import { PaymentButton, TermsForm, PaymentItemForm } from './paymentStyle';
 
-const validationTerms = (terms) => {
-  if (terms) return 'vaild';
-
-  return 'invaild';
-};
-
 function Terms({ isValidation, isVaild }) {
   const [termsAgree, setTermsAgree] = useState({ info: false, payment: false });
   const navigate = useNavigate();
+  const handlePaymentButtonClick = () => {
+    if (isVaild) {
+      navigate(PAYMENT_RESULT_PAGE, {
+        state: {
+          orderNumber: '111',
+          name: '거창 오가네체리자두 3kg한 상자',
+          imageUrl:
+            'https://user-images.githubusercontent.com/54323527/188268108-b85a8878-0139-4415-96db-1d1fac66967f.jpg',
+          subContents: {
+            name: '3kg',
+            price: 29000,
+            stock: 1,
+          },
+        },
+      });
+    }
+  };
 
   return (
     <PaymentItemForm>
@@ -20,7 +31,7 @@ function Terms({ isValidation, isVaild }) {
         <input
           type="checkbox"
           onChange={(e) => {
-            isValidation(validationTerms(e.target.checked) === 'vaild');
+            isValidation(e.target.checked);
             setTermsAgree({
               ...termsAgree,
               info: e.target.checked,
@@ -47,25 +58,7 @@ function Terms({ isValidation, isVaild }) {
         />
         <label htmlFor="agree-two">구매조건 확인 및 결제진행에 동의</label>
       </TermsForm>
-      <PaymentButton
-        onClick={() => {
-          if (isVaild) {
-            navigate(PAYMENT_RESULT_PAGE, {
-              state: {
-                orderNumber: '111',
-                name: '거창 오가네체리자두 3kg한 상자',
-                imageUrl:
-                  'https://user-images.githubusercontent.com/54323527/188268108-b85a8878-0139-4415-96db-1d1fac66967f.jpg',
-                subContents: {
-                  name: '3kg',
-                  price: 29000,
-                  stock: 1,
-                },
-              },
-            });
-          }
-        }}
-      >
+      <PaymentButton onClick={() => handlePaymentButtonClick()}>
         결제하기
       </PaymentButton>
     </PaymentItemForm>
