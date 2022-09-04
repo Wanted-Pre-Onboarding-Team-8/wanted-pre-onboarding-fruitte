@@ -37,7 +37,7 @@ function Products() {
         params: {
           page: currentPage,
           size: ITEMS_PER_PAGE,
-          exposure: 'all',
+          exposure: 'on',
         },
       });
       setCurrentProductListData(productListData.data);

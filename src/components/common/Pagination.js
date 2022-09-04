@@ -61,11 +61,11 @@ const Pagination = ({ currentPage, totalPage, numberOfItems, setPage }) => {
   return (
     <div>
       <ActionButton onClick={handleClickPrev} disabled={prevButtonDisabled}>
-        &#60;
+        &#60; Prev
       </ActionButton>
       {renderPageItem}
       <ActionButton onClick={handleClickNext} disabled={nextButtonDisabled}>
-        &#62;
+        Next &#62;
       </ActionButton>
     </div>
   );
@@ -73,12 +73,28 @@ const Pagination = ({ currentPage, totalPage, numberOfItems, setPage }) => {
 
 export default Pagination;
 
-const PageButton = styled.button`
-  background: ${({ isActive }) => isActive && 'skyblue'};
+const Button = styled.button`
+  height: 32px;
+  border: 2px solid skyblue;
+  border-radius: 50%;
+  background: transparent;
+  color: gray;
+  font-weight: 600;
+  
+  &:hover {
+    background-color: #E2E5E6;
+  }
+`;
+
+const PageButton = styled(Button)`
+  width: 32px;
+  background: ${({ isActive }) => isActive && 'skyblue'} !important;
   margin: 5px;
 `;
 
-const ActionButton = styled.button`
+const ActionButton = styled(Button)`
+  width: auto;
+  border-radius: 16px;
   :disabled {
     cursor: not-allowed;
   }

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { PRODUCT_EXPOSURE_API_URL } from '../../consts';
-import Pagination from '../Common/Pagination'
+import Pagination from '../Common/Pagination';
 import ProductListItem from './ProductListItem';
 
 const ProductList = () => {

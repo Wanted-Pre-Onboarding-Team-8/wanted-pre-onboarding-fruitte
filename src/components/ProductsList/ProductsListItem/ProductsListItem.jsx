@@ -20,8 +20,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 
 function ProductListItem(props) {
-  const KO_KR = 'ko-KR'
-  
+  const KO_KR = 'ko-KR';
+
   return (
     <ProductListItemWrapper>
       <Image imageUrl={props.product.imageUrl}></Image>
