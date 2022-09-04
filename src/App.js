@@ -1,5 +1,7 @@
+import ProductList from './components/ProductList/ProductList';
+
 function App() {
-  return <div>Hello fruitte</div>;
+  return <ProductList></ProductList>;
 }
 
 export default App;

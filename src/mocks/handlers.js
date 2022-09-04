@@ -2,7 +2,9 @@ import { rest } from 'msw';
 import { PRODUCTS_PAGE, PRODUCT_ADD_PAGE, PRODUCT_API_URL } from '../consts';
 import data from './data.json';
 
-const productList = [...data.productList];
+const productList = Array.from({ length: 500 }).map((_, idx) => {
+  return data.productList[idx % 8];
+});
 const productDetail = [...data.productDetail];
 
 export const handlers = [
