@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Pagination = ({ currentPage, totalPage, numberOfItems, setPage }) => {
+const Pagination = ({
+  currentPage,
+  totalPage,
+  numberOfItems,
+  setCurrentPage,
+}) => {
   if (totalPage === 0 || currentPage < 0) return null;
 
   const prevButtonDisabled =
@@ -27,12 +32,12 @@ const Pagination = ({ currentPage, totalPage, numberOfItems, setPage }) => {
   };
 
   const handleClickPage = (page) => {
-    setPage(page - 1);
+    setCurrentPage(page - 1);
   };
 
   const handleClickPreviousButton = () => {
     if (Math.floor(Number(currentPage / numberOfItems)) <= 0) return;
-    setPage(
+    setCurrentPage(
       Math.floor(Number(currentPage / numberOfItems) - 1) * numberOfItems,
     );
   };
@@ -42,7 +47,7 @@ const Pagination = ({ currentPage, totalPage, numberOfItems, setPage }) => {
       totalPage - 1
     )
       return;
-    setPage(
+    setCurrentPage(
       Math.floor(Number(currentPage / numberOfItems) + 1) * numberOfItems,
     );
   };
