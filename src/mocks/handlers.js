@@ -4,8 +4,10 @@ import {
   PRODUCT_ADD_PAGE,
   PRODUCT_API_URL,
   PRODUCT_EXPOSURE_API_URL,
+  PAYMENT_HISTORY_PAGE,
 } from '../consts';
 import data from './data.json';
+import historyData from '../components/payment/history/historyData.json';
 
 const productList = Array.from({ length: 500 }).map((_, idx) => {
   return { ...data.productList[idx % 8], id: String(idx + 1) };
@@ -36,7 +38,7 @@ export const handlers = [
     targetProduct.isExposure = !targetProduct.isExposure;
     return res(ctx.status(201));
   }),
-  
+
   rest.get(`${PRODUCTS_PAGE}?id=`, async (req, res, ctx) => {
     const currentProductId = req.url.searchParams.get('id');
     const productDetailById = productDetail.find(
@@ -67,5 +69,9 @@ export const handlers = [
     productList.splice(deleteProductId, DELETE_NUMBER);
 
     return res(ctx.status(201));
+  }),
+
+  rest.get(PAYMENT_HISTORY_PAGE, (_, res, ctx) => {
+    return res(ctx.status(200), ctx.json(historyData));
   }),
 ];
