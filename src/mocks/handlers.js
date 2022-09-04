@@ -7,8 +7,10 @@ import {
 } from '../consts';
 import data from './data.json';
 
-const productList = Array.from({ length: 500 }).map((_, index) => {
-  return { ...data.productList[index % 8], id: String(index + 1) };
+const PRODUCT_LIST_LENGTH = 500;
+const PRODUCT_LIST_DIVIDER = 8;
+const productList = Array.from({ length: PRODUCT_LIST_LENGTH }).map((_, index) => {
+  return { ...data.productList[index % PRODUCT_LIST_DIVIDER], id: String(index + 1) };
 });
 const productDetail = [...data.productDetail];
 

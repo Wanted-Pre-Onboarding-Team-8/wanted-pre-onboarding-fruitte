@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { PRODUCT_API_URL } from '../../../consts';
-import ProductListItem from './ProductsListItem/ProductsListItem';
-import Pagination from '../../Common/Pagination';
+import ProductListItem from './ProductsListItem';
+import Pagination from '../../common/Pagination';
 
 const ProductListItemWrapper = styled.div`
   display: flex;
@@ -28,14 +28,14 @@ function Products() {
 
   useEffect(() => {
     const getCurrentProductListData = async () => {
-      const productListData = await axios.get(PRODUCT_API_URL, {
+      const {data: productList} = await axios.get(PRODUCT_API_URL, {
         params: {
           page: currentPage,
           size: ITEMS_PER_PAGE,
           exposure: 'on',
         },
       });
-      setCurrentProductListData(productListData.data);
+      setCurrentProductListData(productList);
     };
 
     getCurrentProductListData();
@@ -45,10 +45,20 @@ function Products() {
     <Wrapper>
       <ProductListItemWrapper>
         {currentProductListData?.products?.map((product) => {
+          const {id, imageUrl, name, price, salePercent, isMDSelect, stock, isOnSale, sellCount, reviewCount} = product;
           return (
             <ProductListItem
               key={product.id}
-              product={product}
+              id={id}
+              imageUrl={imageUrl}
+              name={name}
+              price={price}
+              salePercent={salePercent}
+              isMDSelect={isMDSelect}
+              stock={stock}
+              isOnSale={isOnSale}
+              sellCount={sellCount}
+              reviewCount={reviewCount}
             ></ProductListItem>
           );
         })}
