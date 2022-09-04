@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { PRODUCT_EXPOSURE_API_URL } from '../../consts';
+import { PRODUCT_EXPOSURE_API_URL, PRODUCT_API_URL } from '../../consts';
 import Pagination from '../Common/Pagination';
 import ProductListItem from './ProductListItem';
 
@@ -33,7 +33,11 @@ const ProductList = () => {
     });
   };
 
-  const handleClickDelete = (id) => {};
+  const handleClickDelete = (id) => {
+    axios.delete(`${PRODUCT_API_URL}/${id}`).then((res) => {
+      getProductList();
+    });
+  };
 
   const renderListItem = (item) => {
     return (
