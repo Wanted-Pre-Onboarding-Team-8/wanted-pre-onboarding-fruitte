@@ -58,6 +58,16 @@ export const Price = styled.div`
   text-decoration: line-through;
 `;
 
+export const TagsWrapper = styled.div`
+  margin: 12px;
+`;
+
+export const ReviewWrapper = styled.div`
+  display: flex;
+  margin: 12px;
+  align-items: center;
+`;
+
 export const ReviewCount = styled.div`
   margin-left: 4px;
   font-size: 0.85em;

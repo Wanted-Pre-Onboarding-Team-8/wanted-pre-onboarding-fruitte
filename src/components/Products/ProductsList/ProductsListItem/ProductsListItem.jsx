@@ -6,6 +6,8 @@ import {
   Price,
   SaledPrice,
   ReviewCount,
+  TagsWrapper,
+  ReviewWrapper,
 } from './ProductsListItemStyled';
 import {
   SaleTag,
@@ -41,17 +43,17 @@ function ProductListItem({ product }) {
           <Price>{product.price.toLocaleString(KO_KR)}</Price>
         )}
       </div>
-      <div style={{ margin: '12px' }}>
+      <TagsWrapper>
         {product.salePercent && <SaleTag />}
         {product.isMDSelect && <MDTag />}
         {!product.stock && <SoldoutTag />}
         {!product.isOnSale && <PendingTag />}
         {product.sellCount >= 10 && <BestTag />}
-      </div>
-      <div style={{ display: 'flex', margin: '12px', alignItems: 'center' }}>
+      </TagsWrapper>
+      <ReviewWrapper>
         <FontAwesomeIcon icon={faComments}></FontAwesomeIcon>
         <ReviewCount>{product.reviewCount}</ReviewCount>
-      </div>
+      </ReviewWrapper>
     </ProductListItemWrapper>
   );
 }

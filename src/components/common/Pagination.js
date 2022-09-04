@@ -80,9 +80,9 @@ const Button = styled.button`
   background: transparent;
   color: gray;
   font-weight: 600;
-  
+
   &:hover {
-    background-color: #E2E5E6;
+    background-color: #e2e5e6;
   }
 `;
 
