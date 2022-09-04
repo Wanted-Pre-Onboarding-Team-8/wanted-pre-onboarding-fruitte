@@ -36,7 +36,7 @@ export const handlers = [
     targetProduct.isExposure = !targetProduct.isExposure;
     return res(ctx.status(201));
   }),
-
+  
   rest.get(`${PRODUCTS_PAGE}?id=`, async (req, res, ctx) => {
     const currentProductId = req.url.searchParams.get('id');
     const productDetailById = productDetail.find(
