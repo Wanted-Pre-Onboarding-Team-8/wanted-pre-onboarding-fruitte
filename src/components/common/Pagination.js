@@ -14,6 +14,7 @@ const Pagination = ({ currentPage, totalPage, numberOfItems, setPage }) => {
     const startPageNumber =
       Math.ceil((currentPage + 1) / numberOfItems) * numberOfItems -
       numberOfItems;
+
     const pages = Array(numberOfItems)
       .fill('')
       .map((_, idx) => {
@@ -29,13 +30,13 @@ const Pagination = ({ currentPage, totalPage, numberOfItems, setPage }) => {
     setPage(page - 1);
   };
 
-  const handleClickPrev = () => {
+  const handleClickPreviousButton = () => {
     if (Math.floor(Number(currentPage / numberOfItems)) <= 0) return;
     setPage(
       Math.floor(Number(currentPage / numberOfItems) - 1) * numberOfItems,
     );
   };
-  const handleClickNext = () => {
+  const handleClickNextButton = () => {
     if (
       Math.floor(Number(currentPage / numberOfItems) + 1) * numberOfItems >
       totalPage - 1
@@ -60,11 +61,17 @@ const Pagination = ({ currentPage, totalPage, numberOfItems, setPage }) => {
 
   return (
     <div>
-      <ActionButton onClick={handleClickPrev} disabled={prevButtonDisabled}>
+      <ActionButton
+        onClick={handleClickPreviousButton}
+        disabled={prevButtonDisabled}
+      >
         &#60;
       </ActionButton>
       {renderPageItem}
-      <ActionButton onClick={handleClickNext} disabled={nextButtonDisabled}>
+      <ActionButton
+        onClick={handleClickNextButton}
+        disabled={nextButtonDisabled}
+      >
         &#62;
       </ActionButton>
     </div>
