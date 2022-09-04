@@ -4,17 +4,24 @@ import Payment from '../components/purchase/payment/Payment';
 import { PurchaseForm } from '../components/purchase/purchaseStyle';
 
 function Purchase() {
-  const [isVaild, setIsVaild] = useState(false);
+  const [isInfoVaild, setIsInfoVaild] = useState(false);
+  const [isPaymentVaild, setIsPaymentVaild] = useState(false);
 
-  const isValidation = (vaild) => {
-    setIsVaild(vaild);
+  const isInfoValidation = (vaild) => {
+    setIsInfoVaild(vaild);
+  };
+  const isPaymentValidation = (vaild) => {
+    setIsPaymentVaild(vaild);
   };
 
   return (
     <PurchaseForm>
       <h1>결제하기</h1>
-      <Info isValidation={isValidation} />
-      <Payment isValidation={isValidation} isVaild={isVaild} />
+      <Info isValidation={isInfoValidation} />
+      <Payment
+        isValidation={isPaymentValidation}
+        isVaild={isInfoVaild && isPaymentVaild}
+      />
     </PurchaseForm>
   );
 }
