@@ -5,6 +5,7 @@ import {
   PRODUCTS_PAGE,
   PRODUCT_ADD_PAGE,
 } from './consts';
+import Purchase from './pages/Purchase';
 import Admin from './pages/Admin';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       <Routes>
         <Route path={PRODUCTS_PAGE} element={<div>메인</div>} />
         <Route path={`${PRODUCTS_PAGE}/:id`} element={<div>상세</div>} />
-        <Route path={PAYMENT_PAGE} element={<div>결제</div>} />
+        <Route path={PAYMENT_PAGE} element={<Purchase />} />
         <Route path={ADMIN_PAGE} element={<Admin />} />
         <Route path={PRODUCT_ADD_PAGE} element={<div>관리자 상품 추가</div>} />
         <Route path="/*" element={<div>404 Not Fround</div>} />
