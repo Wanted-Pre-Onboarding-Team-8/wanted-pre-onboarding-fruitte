@@ -6,12 +6,13 @@ import {
   PRODUCT_ADD_PAGE,
 } from './consts';
 import Admin from './pages/Admin';
+import Products from './pages/Products';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={PRODUCTS_PAGE} element={<div>메인</div>} />
+        <Route path={PRODUCTS_PAGE} element={<Products />} />
         <Route path={`${PRODUCTS_PAGE}/:id`} element={<div>상세</div>} />
         <Route path={PAYMENT_PAGE} element={<div>결제</div>} />
         <Route path={ADMIN_PAGE} element={<Admin />} />
