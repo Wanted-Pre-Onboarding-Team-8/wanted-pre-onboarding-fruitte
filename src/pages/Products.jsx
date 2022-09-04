@@ -1,8 +1,10 @@
 import styled from 'styled-components';
-import ProductsList from '../components/ProductsList/ProductsList';
+import ProductsList from '../components/Products/ProductsList/ProductsList.jsx';
+import Landing from '../components/Products/Landing/Landing.jsx';
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
@@ -10,7 +12,8 @@ const Wrapper = styled.div`
 function Products() {
   return (
     <Wrapper>
-      <ProductsList></ProductsList>
+      <Landing />
+      <ProductsList />
     </Wrapper>
   );
 }

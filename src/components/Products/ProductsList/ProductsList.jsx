@@ -1,18 +1,13 @@
-// fix: 임시로 disable
-// setCurrentPage, setItemsPerPage는 아직 선언만 해둔 상태.
-// pagination에 해당 인자가 들어갈 예정.
-// pagination 작업 끝나면 제거 예정.
-/* eslint-disable */
-
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { PRODUCT_API_URL } from '../../consts';
+import { PRODUCT_API_URL } from '../../../consts';
 import ProductListItem from './ProductsListItem/ProductsListItem';
-import Pagination from '../Common/Pagination';
+import Pagination from '../../Common/Pagination';
 
 const ProductListItemWrapper = styled.div`
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
 `;
 

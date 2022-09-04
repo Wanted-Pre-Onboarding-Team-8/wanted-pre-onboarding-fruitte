@@ -75,7 +75,7 @@ export default Pagination;
 
 const Button = styled.button`
   height: 32px;
-  border: 2px solid skyblue;
+  border: 2px solid #499c2e;
   border-radius: 50%;
   background: transparent;
   color: gray;
@@ -88,7 +88,8 @@ const Button = styled.button`
 
 const PageButton = styled(Button)`
   width: 32px;
-  background: ${({ isActive }) => isActive && 'skyblue'} !important;
+  background: ${({ isActive }) => isActive && '#499c2e'} !important;
+  color: ${({ isActive }) => isActive && 'white'} !important;
   margin: 5px;
 `;
 
