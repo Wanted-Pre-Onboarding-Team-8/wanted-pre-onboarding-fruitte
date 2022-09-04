@@ -1,10 +1,16 @@
+import { useRef, useState } from 'react';
 import {
   DeliverAddress,
   DeliverInfoForm,
   DeliverMemo,
   InfoItemForm,
 } from './infoStyle';
-import { useRef, useState } from 'react';
+import {
+  validationAddress,
+  validationName,
+  validationPhone,
+  validationPhoneEnter,
+} from '../validations';
 import Modal from './Modal';
 
 function DeliverInfo({ isValidation, customerData }) {
@@ -12,6 +18,7 @@ function DeliverInfo({ isValidation, customerData }) {
   const customerPhone = useRef(null);
   const zonecodeInput = useRef(null);
   const addressInput = useRef(null);
+  const deliverMemoInput = useRef(null);
   const [formVaildation, setFormVaildation] = useState({
     name: 'idle',
     phone: 'idle',
@@ -22,30 +29,6 @@ function DeliverInfo({ isValidation, customerData }) {
     setIsOpen(true);
   };
 
-  const NAME_REGEX = /^[가-힣]{2,4}$/;
-  const PHONE_REGEX = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-  const ADDRESS_REGEX =
-    /^((?!상가)[가-힣])+(\d{1,5}|(\d{1,5}[가-힣,]+\d{1,5})?)(읍|면|동|가)$/;
-
-  const validationName = (name) => {
-    if (name.length === 0) return 'idle';
-    if (NAME_REGEX.test(name)) return 'vaild';
-
-    return 'invaild';
-  };
-  const validationPhone = (phone) => {
-    if (phone.length === 0) return 'idle';
-    if (PHONE_REGEX.test(phone)) return 'vaild';
-
-    return 'invaild';
-  };
-  const validationAddress = (address) => {
-    if (address.length === 0) return 'idle';
-    if (ADDRESS_REGEX.test(address)) return 'vaild';
-
-    return 'invaild';
-  };
-
   const DROPDOWN_DATA = [
     '배송메모를 선택해주세요.',
     '배송전에 미리 연락 바랍니다.',
@@ -53,13 +36,26 @@ function DeliverInfo({ isValidation, customerData }) {
     '부재시 문자나 전화를 남겨주세요.',
     '직접 입력',
   ];
-  const deliverMemoInput = useRef(null);
-  const number = /[0-9]/g;
-  const dash = /[-]/g;
+  const onCustomMemoInput = (idx) => {
+    if (parseInt(idx) === DROPDOWN_DATA.length - 1) {
+      deliverMemoInput.current.style.display = 'block';
+    } else {
+      deliverMemoInput.current.style.display = 'none';
+    }
+  };
 
   const onComplete = (zonecode, address) => {
     zonecodeInput.current.value = zonecode;
     addressInput.current.value = address;
+  };
+  const setSameCustomerData = (name, phone, checked) => {
+    if (checked) {
+      customerName.current.value = name;
+      customerPhone.current.value = phone;
+    } else {
+      customerName.current.value = '';
+      customerPhone.current.value = '';
+    }
   };
 
   return (
@@ -69,15 +65,13 @@ function DeliverInfo({ isValidation, customerData }) {
         <div className="customer-info">
           <input
             type="checkbox"
-            onChange={(e) => {
-              if (e.target.checked === true) {
-                customerName.current.value = customerData.name;
-                customerPhone.current.value = customerData.phone;
-              } else {
-                customerName.current.value = '';
-                customerPhone.current.value = '';
-              }
-            }}
+            onChange={(e) =>
+              setSameCustomerData(
+                customerData.name,
+                customerData.phone,
+                e.target.checked,
+              )
+            }
           />
           <span>주문자 정보와 동일</span>
         </div>
@@ -93,7 +87,7 @@ function DeliverInfo({ isValidation, customerData }) {
             isValidation(
               validationName(e.target.value) === 'vaild' &&
                 formVaildation.phone === 'vaild' &&
-                formVaildation.address,
+                formVaildation.address === 'vaild',
             );
           }}
         />
@@ -109,14 +103,20 @@ function DeliverInfo({ isValidation, customerData }) {
             isValidation(
               validationPhone(e.target.value) === 'vaild' &&
                 formVaildation.name === 'vaild' &&
-                formVaildation.address,
+                formVaildation.address === 'vaild',
             );
           }}
           onChange={(e) => {
-            if (!number.test(e.target.value) && !dash.test(e.target.value))
-              e.target.value = '';
+            if (validationPhoneEnter(e.target.value)) e.target.value = '';
           }}
         />
+        <span>
+          {formVaildation.name === 'invaild' && '이름을 정확히 입력해주세요'}
+        </span>
+        <span>
+          {formVaildation.phone === 'invaild' &&
+            '전화번호를 정확히 입력해주세요'}
+        </span>
       </DeliverInfoForm>
       <DeliverAddress>
         <input type="text" placeholder="우편번호" ref={zonecodeInput} />
@@ -142,7 +142,7 @@ function DeliverInfo({ isValidation, customerData }) {
             isValidation(
               validationAddress(e.target.value) === 'vaild' &&
                 formVaildation.name === 'vaild' &&
-                formVaildation.phone,
+                formVaildation.phone === 'vaild',
             );
           }}
         />
@@ -153,11 +153,7 @@ function DeliverInfo({ isValidation, customerData }) {
         <select
           name="deliverMemo"
           id="deliverMemo"
-          onChange={(e) =>
-            e.target.value === '4'
-              ? (deliverMemoInput.current.style.display = 'block')
-              : (deliverMemoInput.current.style.display = 'none')
-          }
+          onChange={(e) => onCustomMemoInput(e.target.value)}
         >
           {DROPDOWN_DATA.map((data, idx) => {
             return (

@@ -1,30 +1,16 @@
 import { CustomerInfoForm, InfoItemForm } from './infoStyle';
 import { useState } from 'react';
+import {
+  validationName,
+  validationPhone,
+  validationPhoneEnter,
+} from '../validations';
 
 function CustomerInfo({ isValidation, customerName, customerPhone }) {
   const [formVaildation, setFormVaildation] = useState({
     name: 'idle',
     phone: 'idle',
   });
-
-  const number = /[0-9]/g;
-  const dash = /[-]/g;
-
-  const NAME_REGEX = /^[가-힣]{2,4}$/;
-  const PHONE_REGEX = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-
-  const validationName = (name) => {
-    if (name.length === 0) return 'idle';
-    if (NAME_REGEX.test(name)) return 'vaild';
-
-    return 'invaild';
-  };
-  const validationPhone = (phone) => {
-    if (phone.length === 0) return 'idle';
-    if (PHONE_REGEX.test(phone)) return 'vaild';
-
-    return 'invaild';
-  };
 
   return (
     <InfoItemForm>
@@ -64,10 +50,16 @@ function CustomerInfo({ isValidation, customerName, customerPhone }) {
             customerPhone(e.target.value);
           }}
           onChange={(e) => {
-            if (!number.test(e.target.value) && !dash.test(e.target.value))
-              e.target.value = '';
+            if (validationPhoneEnter(e.target.value)) e.target.value = '';
           }}
         />
+        <span>
+          {formVaildation.name === 'invaild' && '이름을 정확히 입력해주세요'}
+        </span>
+        <span>
+          {formVaildation.phone === 'invaild' &&
+            '전화번호를 정확히 입력해주세요'}
+        </span>
         <input type="text" placeholder="이메일(선택)" />
       </CustomerInfoForm>
     </InfoItemForm>
