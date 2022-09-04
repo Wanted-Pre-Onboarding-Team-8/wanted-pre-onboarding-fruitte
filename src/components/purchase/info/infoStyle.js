@@ -36,6 +36,13 @@ export const CustomerInfoForm = styled.div`
       margin-bottom: 0px;
     }
   }
+  > span {
+    width: 49%;
+    font: 10px/1 'malgun gothic';
+    color: orangered;
+    margin-bottom: 10px;
+    text-align: left;
+  }
 `;
 
 export const OrderInfoForm = styled.div`
@@ -123,6 +130,13 @@ export const DeliverInfoForm = styled.div`
     width: 49%;
     padding: 8px 10px;
     margin-bottom: 7px;
+  }
+  > span {
+    width: 49%;
+    font: 10px/1 'malgun gothic';
+    color: orangered;
+    margin-bottom: 10px;
+    text-align: left;
   }
 `;
 export const DeliverAddress = styled.div`
