@@ -1,9 +1,14 @@
 import { rest } from 'msw';
-import { PRODUCTS_PAGE, PRODUCT_ADD_PAGE, PRODUCT_API_URL } from '../consts';
+import {
+  PRODUCTS_PAGE,
+  PRODUCT_ADD_PAGE,
+  PRODUCT_API_URL,
+  PRODUCT_EXPOSURE_API_URL,
+} from '../consts';
 import data from './data.json';
 
 const productList = Array.from({ length: 500 }).map((_, idx) => {
-  return data.productList[idx % 8];
+  return { ...data.productList[idx % 8], id: String(idx + 1) };
 });
 const productDetail = [...data.productDetail];
 
@@ -25,6 +30,13 @@ export const handlers = [
     return res(ctx.status(200), ctx.json(responseData));
   }),
 
+  rest.put(`${PRODUCT_EXPOSURE_API_URL}/:id`, (req, res, ctx) => {
+    const { id } = req.params;
+    const targetProduct = productList.find((product) => product.id === id);
+    targetProduct.isExposure = !targetProduct.isExposure;
+    return res(ctx.status(201));
+  }),
+  
   rest.get(`${PRODUCTS_PAGE}?id=`, async (req, res, ctx) => {
     const currentProductId = req.url.searchParams.get('id');
     const productDetailById = productDetail.find(
