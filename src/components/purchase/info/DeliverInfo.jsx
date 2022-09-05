@@ -13,6 +13,14 @@ import {
 } from '../validations';
 import Modal from './Modal';
 
+const DROPDOWN_DATA = [
+  '배송메모를 선택해주세요.',
+  '배송전에 미리 연락 바랍니다.',
+  '부재시 경비실에 맡겨주세요.',
+  '부재시 문자나 전화를 남겨주세요.',
+  '직접 입력',
+];
+
 function DeliverInfo({ isValidation, customerData }) {
   const customerName = useRef(null);
   const customerPhone = useRef(null);
@@ -28,14 +36,6 @@ function DeliverInfo({ isValidation, customerData }) {
   const onClickButton = () => {
     setIsOpen(true);
   };
-
-  const DROPDOWN_DATA = [
-    '배송메모를 선택해주세요.',
-    '배송전에 미리 연락 바랍니다.',
-    '부재시 경비실에 맡겨주세요.',
-    '부재시 문자나 전화를 남겨주세요.',
-    '직접 입력',
-  ];
   const onCustomMemoInput = (idx) => {
     if (parseInt(idx) === DROPDOWN_DATA.length - 1) {
       deliverMemoInput.current.style.display = 'block';
