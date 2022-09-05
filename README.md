@@ -23,7 +23,7 @@
 
 
 ## ✋ 프로젝트 링크
-http://pre-onboarding-wanted-deploy-test-metamong.s3-website.ap-northeast-2.amazonaws.com/
+<h3><a href='http://pre-onboarding-wanted-deploy-test-metamong.s3-website.ap-northeast-2.amazonaws.com/'>데모 사이트 보러가기</a></h3>
 
 </br>
 
