@@ -1,70 +1,135 @@
-# Getting Started with Create React App
+# - Assginment #2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📕 프로젝트 목표
 
-## Available Scripts
+#### Fruitte 스토어 리뉴얼 개발     
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+## 👨‍👩‍👧‍👧 팀원 소개 및 역할
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| 이름   |                                 역할                                  |
+| ------ | :-------------------------------------------------------------------: |
+| 김재민 | 프로젝트 초기 세팅, Mock 데이터 세팅, 전체 리뷰 및 리팩토링 |
+| 이지우 |            관리자 상품 관리 페이지 페이지 구성, 공통 컴포넌트 제작            |
+| 장현성 |                    상품 결제 페이지                    |
+| 신승준 |                메인 상품 페이지, GNB 네비게이션                 |
+| 김기범 |                         결제 내역 페이지, 결제 관련 api mock 제작                                   |
+| 배범수 |       관리자 상품 삭제 , 관리자 페이지 스타일링      |
+| 최재혁 |            상품 상세 페이지            |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+</br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## ✋ 프로젝트 링크
+http://pre-onboarding-wanted-deploy-test-metamong.s3-website.ap-northeast-2.amazonaws.com/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✋ 프로젝트 실행 방법
+```
+> npm i
+> npm run start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+</br>
 
-### `npm run eject`
+## ✨ 프로젝트 구현 기능
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+사용자 기능
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 스토어 상품목록 조회(30개 이상의 상품목록, 10개 단위의 페이지네이션)
+- 스토어 상품 주문 내역확인 (주문 번호, 상품명, 주문 수량, 주문 옵션)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src='https://user-images.githubusercontent.com/54323527/188350789-fdb31640-8031-44c2-9cd9-df042c028ec8.png' />
+<img src='https://user-images.githubusercontent.com/54323527/188350803-ef9116af-0f02-4b69-a1db-bfd066cc36c6.png' />
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br/>
 
-## Learn More
+관리자 기능
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 상품 노출 여부 조정 기능(상품은 유지되어 있되, 노출 여부를 수정하는 기능)
+- 상품 삭제 기능
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src='https://user-images.githubusercontent.com/54323527/188350800-1f9173cd-708f-4627-9364-ab7b7277e665.png'/>
 
-### Code Splitting
+</br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## ✨ 사용 스택
+- react
+- styled-components (style)
+- react-router-dom (route)
+- react-daum-postcode (address)
+- msw (api mock)  
 
-### Analyzing the Bundle Size
+</br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## ✨ 프로젝트 구조
 
-### Making a Progressive Web App
+```
+src
+ ┣ components
+ ┃ ┣ Products
+ ┃ ┃ ┣ Landing
+ ┃ ┃ ┃ ┣ Landing.jsx
+ ┃ ┃ ┃ ┗ LandingStyled.js
+ ┃ ┃ ┗ ProductsList
+ ┃ ┃ ┃ ┣ ProductsList.jsx
+ ┃ ┃ ┃ ┣ ProductsListItem.jsx
+ ┃ ┃ ┃ ┗ ProductsListItemStyled.js
+ ┃ ┣ admin
+ ┃ ┃ ┣ Layout.js
+ ┃ ┃ ┣ Nav.js
+ ┃ ┃ ┣ ProductList.js
+ ┃ ┃ ┣ ProductListItem.js
+ ┃ ┃ ┗ index.js
+ ┃ ┣ common
+ ┃ ┃ ┣ Tag
+ ┃ ┃ ┃ ┣ Tag.js
+ ┃ ┃ ┃ ┗ TagStyled.js
+ ┃ ┃ ┗ Pagination.js
+ ┃ ┗ purchase
+ ┃ ┃ ┣ info
+ ┃ ┃ ┃ ┣ CustomerInfo.jsx
+ ┃ ┃ ┃ ┣ DeliverInfo.jsx
+ ┃ ┃ ┃ ┣ Info.jsx
+ ┃ ┃ ┃ ┣ Modal.jsx
+ ┃ ┃ ┃ ┣ OrderInfo.jsx
+ ┃ ┃ ┃ ┣ UseOutsiderClick.js
+ ┃ ┃ ┃ ┗ infoStyle.js
+ ┃ ┃ ┣ payment
+ ┃ ┃ ┃ ┣ OrderSummary.jsx
+ ┃ ┃ ┃ ┣ Payment.jsx
+ ┃ ┃ ┃ ┣ PaymentMethod.jsx
+ ┃ ┃ ┃ ┣ Terms.jsx
+ ┃ ┃ ┃ ┗ paymentStyle.js
+ ┃ ┃ ┣ purchaseStyle.js
+ ┃ ┃ ┗ validations.js
+ ┣ consts
+ ┃ ┣ api.js
+ ┃ ┣ index.js
+ ┃ ┗ routes.js
+ ┣ mocks
+ ┃ ┣ browser.js
+ ┃ ┣ data.json
+ ┃ ┗ handlers.js
+ ┣ pages
+ ┃ ┣ Admin.js
+ ┃ ┣ Products.jsx
+ ┃ ┗ Purchase.js
+ ┣ styles
+ ┃ ┣ GlobalStyle.jsx
+ ┃ ┣ _color.scss
+ ┃ ┗ _reset.scss
+ ┣ App.js
+ ┗ index.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+</br>
 
-### Advanced Configuration
+## 📖 8팀 컨벤션 및 회의록
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Convention-commit](https://www.notion.so/6a7522b6be6348d3b9e8e522c0c76053)
+- [Convention-etc](https://www.notion.so/2022-09-02-49fdc592a25e44b29cccfc8f1cb38828)
+- [etc](https://www.notion.so/2022-09-03-a5618261bb7b4eeca2f86493daf8a49e)
