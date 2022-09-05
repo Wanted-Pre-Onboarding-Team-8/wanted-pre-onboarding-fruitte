@@ -8,12 +8,13 @@ import {
 } from './consts';
 import Purchase from './pages/Purchase';
 import Admin from './pages/Admin';
+import Products from './pages/Products';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={PRODUCTS_PAGE} element={<div>메인</div>} />
+        <Route path={PRODUCTS_PAGE} element={<Products />} />
         <Route path={`${PRODUCTS_PAGE}/:id`} element={<div>상세</div>} />
         <Route path={PAYMENT_PAGE} element={<Purchase />} />
         <Route path={PAYMENT_RESULT_PAGE} element={<div>주문목록</div>} />

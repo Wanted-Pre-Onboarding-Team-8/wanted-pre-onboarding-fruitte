@@ -11,14 +11,14 @@ export const Tag = styled.div`
 `;
 
 export const Sale = styled(Tag)`
-  background-color: #E94560;
+  background-color: #e94560;
   color: white;
   font-weight: bold;
 `;
 
 export const Best = styled(Tag)`
-  border: 1px solid #E94560;
-  color: #E94560;
+  border: 1px solid #e94560;
+  color: #e94560;
   font-weight: bold;
   text-decoration: underline;
 `;
