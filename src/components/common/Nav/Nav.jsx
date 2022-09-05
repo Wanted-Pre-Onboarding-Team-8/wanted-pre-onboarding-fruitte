@@ -1,7 +1,12 @@
 /* eslint-disable */
 
 import { useNavigate } from 'react-router-dom';
-import { PAYMENT_RESULT_PAGE, ADMIN_PAGE, PAYMENT_PAGE, PRODUCTS_PAGE } from '../../../consts';
+import {
+  PAYMENT_RESULT_PAGE,
+  ADMIN_PAGE,
+  PAYMENT_PAGE,
+  PRODUCTS_PAGE,
+} from '../../../consts';
 import { MenuWrapper, Wrapper, Menu, Logo, AdminMenu } from './NavStyled';
 
 function Nav() {

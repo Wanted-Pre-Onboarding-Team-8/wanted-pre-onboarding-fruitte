@@ -6,7 +6,7 @@ import {
   PRODUCT_ADD_PAGE,
   PAYMENT_RESULT_PAGE,
 } from './consts';
-import DetailPage from './pages/DetailPage/DetailPage';
+import DetailPage from './components/Detail/DetailPage';
 import styled from 'styled-components';
 import Purchase from './pages/Purchase';
 import Admin from './pages/Admin';
