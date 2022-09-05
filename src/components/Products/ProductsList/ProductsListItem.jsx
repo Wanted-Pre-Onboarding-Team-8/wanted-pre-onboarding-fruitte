@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ProductListItemWrapper,
@@ -33,8 +34,14 @@ function ProductListItem({
   reviewCount,
 }) {
   const KO_KR = 'ko-KR';
-  const SALED_PRICE =
-    '₩ ' + (price * (100 - salePercent) * 0.01).toLocaleString(KO_KR);
+  const MAKE_DECIMAL = 0.01;
+  const MONEY_UNIT = '₩ ';
+  const saledPrice = useMemo(() => {
+    return (
+      MONEY_UNIT +
+      (price * (100 - salePercent) * MAKE_DECIMAL).toLocaleString(KO_KR)
+    );
+  }, [price]);
   const navigate = useNavigate();
 
   const handleClickProductListItem = () => {
@@ -46,7 +53,7 @@ function ProductListItem({
       <Image imageUrl={imageUrl}></Image>
       <Title>{name}</Title>
       <div>
-        <SaledPrice>{SALED_PRICE}</SaledPrice>
+        <SaledPrice>{saledPrice}</SaledPrice>
         {salePercent && <Price>{price.toLocaleString(KO_KR)}</Price>}
       </div>
       <TagsWrapper>

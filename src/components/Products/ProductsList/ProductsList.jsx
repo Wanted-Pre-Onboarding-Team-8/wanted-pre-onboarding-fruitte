@@ -28,7 +28,7 @@ function Products() {
 
   useEffect(() => {
     const getCurrentProductListData = async () => {
-      const {data: productList} = await axios.get(PRODUCT_API_URL, {
+      const { data: productList } = await axios.get(PRODUCT_API_URL, {
         params: {
           page: currentPage,
           size: ITEMS_PER_PAGE,
@@ -45,7 +45,18 @@ function Products() {
     <Wrapper>
       <ProductListItemWrapper>
         {currentProductListData?.products?.map((product) => {
-          const {id, imageUrl, name, price, salePercent, isMDSelect, stock, isOnSale, sellCount, reviewCount} = product;
+          const {
+            id,
+            imageUrl,
+            name,
+            price,
+            salePercent,
+            isMDSelect,
+            stock,
+            isOnSale,
+            sellCount,
+            reviewCount,
+          } = product;
           return (
             <ProductListItem
               key={product.id}
