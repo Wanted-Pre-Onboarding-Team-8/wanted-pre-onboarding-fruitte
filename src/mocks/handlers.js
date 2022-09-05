@@ -42,6 +42,19 @@ export const handlers = [
     return res(ctx.status(200), ctx.json(responseData));
   }),
 
+  rest.delete(`${PRODUCT_API_URL}/:id`, (req, res, ctx) => {
+    const DELETE_NUMBER = 1;
+
+    const currentProductId = req.params.id;
+    const deleteProductId = productList.findIndex(
+      (product) => product.id === currentProductId,
+    );
+
+    productList.splice(deleteProductId, DELETE_NUMBER);
+
+    return res(ctx.status(201));
+  }),
+
   rest.put(`${PRODUCT_EXPOSURE_API_URL}/:id`, (req, res, ctx) => {
     const { id } = req.params;
     const targetProduct = productList.find((product) => product.id === id);
@@ -65,19 +78,6 @@ export const handlers = [
     const newProduct = await req.json();
 
     await productList.push({ ...newProduct, id: req.id });
-    return res(ctx.status(201));
-  }),
-
-  rest.delete(`${PRODUCTS_PAGE}?id=`, async (req, res, ctx) => {
-    const DELETE_NUMBER = 1;
-
-    const currentProductId = req.url.searchParams.get('id');
-    const deleteProductId = productList.findIndex(
-      (product) => product.id === currentProductId,
-    );
-
-    productList.splice(deleteProductId, DELETE_NUMBER);
-
     return res(ctx.status(201));
   }),
 ];
