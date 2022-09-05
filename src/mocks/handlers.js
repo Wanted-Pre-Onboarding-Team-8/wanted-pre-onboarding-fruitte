@@ -26,11 +26,11 @@ export const handlers = [
     const size = Number(req.url.searchParams.get('size'));
     const exposure = req.url.searchParams.get('exposure')
       ? req.url.searchParams.get('exposure')
-      : exposureStatus[2];
+      : exposureStatus[0];
     const newProducts = [...productList].filter((product) => {
-      if (exposure === exposureStatus[0]) {
+      if (exposure === exposureStatus[1]) {
         return product.isExposure === true;
-      } else if (exposure === exposureStatus[1]) {
+      } else if (exposure === exposureStatus[2]) {
         return product.isExposure === false;
       } else {
         return product;
