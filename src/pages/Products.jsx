@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import ProductsList from '../components/products/ProductsList/ProductsList.jsx';
-import Landing from '../components/products/Landing/Landing.jsx';
+import ProductsList from '../components/Products/ProductsList/ProductsList'
+import Landing from '../components/Products/Landing/Landing.jsx';
 
 const Wrapper = styled.div`
   display: flex;
