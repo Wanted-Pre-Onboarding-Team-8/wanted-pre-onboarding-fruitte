@@ -2,10 +2,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import {
   ADMIN_PAGE,
   PAYMENT_PAGE,
-  PAYMENT_RESULT_PAGE,
   PRODUCTS_PAGE,
   PRODUCT_ADD_PAGE,
+  PAYMENT_RESULT_PAGE,
 } from './consts';
+import DetailPage from './components/Detail/DetailPage';
 import styled from 'styled-components';
 import Purchase from './pages/Purchase';
 import Admin from './pages/Admin';
@@ -18,7 +19,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path={PRODUCTS_PAGE} element={<Products />} />
-        <Route path={`${PRODUCTS_PAGE}/:id`} element={<div>상세</div>} />
+        <Route path={`${PRODUCTS_PAGE}/:id`} element={<DetailPage />} />
         <Route path={PAYMENT_PAGE} element={<Purchase />} />
         <Route
           path={PAYMENT_RESULT_PAGE}
