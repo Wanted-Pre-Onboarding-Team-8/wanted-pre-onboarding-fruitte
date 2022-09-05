@@ -4,6 +4,7 @@ import {
   PRODUCT_ADD_PAGE,
   PRODUCT_API_URL,
   PRODUCT_EXPOSURE_API_URL,
+  PRODUCT_DETAIL_URL,
 } from '../consts';
 import data from './data.json';
 
@@ -69,7 +70,7 @@ export const handlers = [
     return res(ctx.status(201));
   }),
 
-  rest.get(`${PRODUCTS_PAGE}?id=`, async (req, res, ctx) => {
+  rest.get(`${PRODUCT_DETAIL_URL}?id=`, async (req, res, ctx) => {
     const currentProductId = req.url.searchParams.get('id');
     const productDetailById = productDetail.find(
       (product) => product.id === currentProductId,
