@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ProductsList from '../components/Products/ProductsList/ProductsList'
+import ProductsList from '../components/Products/ProductsList/ProductsList';
 import Landing from '../components/Products/Landing/Landing.jsx';
 
 const Wrapper = styled.div`
