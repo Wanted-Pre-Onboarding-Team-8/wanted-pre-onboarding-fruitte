@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import {
   ADMIN_PAGE,
   PAYMENT_HISTORY_PAGE,
+  PAYMENT_PAGE,
   PRODUCTS_PAGE,
   PRODUCT_ADD_PAGE,
   PAYMENT_RESULT_PAGE,
@@ -13,7 +14,8 @@ import Admin from './pages/Admin';
 import PaymentHistory from './pages/PaymentHistory';
 import Products from './pages/Products';
 import Nav from './components/common/Nav/Nav';
-
+import Products from './pages/Products';
+import Nav from './components/common/Nav/Nav';
 
 function App() {
   return (

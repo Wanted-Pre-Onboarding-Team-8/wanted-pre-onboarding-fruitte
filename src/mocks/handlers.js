@@ -91,7 +91,6 @@ export const handlers = [
     await productList.push({ ...newProduct, id: req.id });
     return res(ctx.status(201));
   }),
-
   rest.delete(`${PRODUCTS_PAGE}?id=`, async (req, res, ctx) => {
     const DELETE_NUMBER = 1;
 
