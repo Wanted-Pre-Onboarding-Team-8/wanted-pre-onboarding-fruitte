@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import {
   ADMIN_PAGE,
+  PAYMENT_HISTORY_PAGE,
   PAYMENT_PAGE,
   PRODUCTS_PAGE,
   PRODUCT_ADD_PAGE,
@@ -10,6 +11,9 @@ import DetailPage from './components/Detail/DetailPage';
 import styled from 'styled-components';
 import Purchase from './pages/Purchase';
 import Admin from './pages/Admin';
+import PaymentHistory from './pages/PaymentHistory';
+import Products from './pages/Products';
+import Nav from './components/common/Nav/Nav';
 import Products from './pages/Products';
 import Nav from './components/common/Nav/Nav';
 
@@ -18,6 +22,9 @@ function App() {
     <BrowserRouter>
       <Nav />
       <Routes>
+        <Route path={PRODUCTS_PAGE} element={<div>메인</div>} />
+        <Route path={`${PRODUCTS_PAGE}/:id`} element={<div>상세</div>} />
+        <Route path={PAYMENT_HISTORY_PAGE} element={<PaymentHistory />} />
         <Route path={PRODUCTS_PAGE} element={<Products />} />
         <Route path={`${PRODUCTS_PAGE}/:id`} element={<DetailPage />} />
         <Route path={PAYMENT_PAGE} element={<Purchase />} />
