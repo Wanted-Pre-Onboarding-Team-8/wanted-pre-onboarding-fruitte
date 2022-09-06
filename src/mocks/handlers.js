@@ -4,9 +4,11 @@ import {
   PRODUCT_ADD_PAGE,
   PRODUCT_API_URL,
   PRODUCT_EXPOSURE_API_URL,
+  PAYMENT_HISTORY_PAGE,
   PRODUCT_DETAIL_URL,
 } from '../consts';
 import data from './data.json';
+import historyData from '../components/payment/history/historyData.json';
 
 const PRODUCT_LIST_LENGTH = 500;
 const PRODUCT_LIST_DIVIDER = 8;
@@ -70,6 +72,7 @@ export const handlers = [
     return res(ctx.status(201));
   }),
 
+  rest.get(`${PRODUCTS_PAGE}?id=`, async (req, res, ctx) => {
   rest.get(`${PRODUCT_DETAIL_URL}?id=`, async (req, res, ctx) => {
     const currentProductId = req.url.searchParams.get('id');
     const productDetailById = productDetail.find(
@@ -87,5 +90,22 @@ export const handlers = [
 
     await productList.push({ ...newProduct, id: req.id });
     return res(ctx.status(201));
+  }),
+
+  rest.delete(`${PRODUCTS_PAGE}?id=`, async (req, res, ctx) => {
+    const DELETE_NUMBER = 1;
+
+    const currentProductId = req.url.searchParams.get('id');
+    const deleteProductId = productList.findIndex(
+      (product) => product.id === currentProductId,
+    );
+
+    productList.splice(deleteProductId, DELETE_NUMBER);
+
+    return res(ctx.status(201));
+  }),
+
+  rest.get(PAYMENT_HISTORY_PAGE, (_, res, ctx) => {
+    return res(ctx.status(200), ctx.json(historyData));
   }),
 ];

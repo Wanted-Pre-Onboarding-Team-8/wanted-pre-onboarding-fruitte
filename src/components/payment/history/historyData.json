@@ -1,0 +1,52 @@
+{
+  "historyList": [
+    {
+      "orderNumber": "2022090402116",
+      "name": "거창 오가네체리자두 3kg한 상자",
+      "imageUrl": "https://user-images.githubusercontent.com/54323527/188268088-acebe58d-5f74-4fb9-899a-bef0963899f4.jpg",
+      "subName": "3kg",
+      "price": 29000,
+      "stock": 1
+    },
+    {
+      "orderNumber": "2022090402117",
+      "name": "국산 강원도 생 아스파라거스 1kg 2kg",
+      "imageUrl": "https://user-images.githubusercontent.com/54323527/188268088-acebe58d-5f74-4fb9-899a-bef0963899f4.jpg",
+      "subName": "2kg",
+      "price": 40000,
+      "stock": 2
+    },
+    {
+      "orderNumber": "2022090402118",
+      "name": "전통 재래식 메주로 띄운 수제 된장 1kg 2kg",
+      "imageUrl": "https://user-images.githubusercontent.com/54323527/188268099-b5f742fb-44db-4036-9616-ac76a2339bd8.jpg",
+      "subName": "3kg",
+      "price": 56000,
+      "stock": 2
+    },
+    {
+      "orderNumber": "2022090402119",
+      "name": "100% 제주감귤주스 (15팩 x 1box)",
+      "imageUrl": "https://cdn.imweb.me/thumbnail/20220521/69f390486a3e3.png",
+      "subName": "5박스",
+      "price": 112500,
+      "stock": 1
+    },
+    {
+      "orderNumber": "2022090402120",
+      "name": "반려동물과자 아기과자 동결건조 사과칩 50g (5봉지, 10봉지 묶음상품)",
+      "imageUrl": "https://cdn.imweb.me/thumbnail/20220714/802daf8483428.jpeg",
+      "subName": "10봉지",
+      "price": 65000,
+      "stock": 1
+    },
+    {
+      "orderNumber": "2022090402121",
+      "name": "청양 전통 수제 간장 500ml, 1L",
+      "imageUrl": "https://cdn.imweb.me/thumbnail/20220622/cffd1aa63f3f9.jpg",
+      "subName": "간장 500ml",
+      "price": 6500,
+      "stock": 1
+    }
+  ]
+}
